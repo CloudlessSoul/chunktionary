@@ -5,9 +5,12 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var searchRouter = require('./routes/search');
+var populateRouter = require('./routes/populate');
 
 var app = express();
 
+app.engine('html', require('eta').renderFile);
+app.set('view engine', 'eta');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -16,5 +19,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/search', searchRouter);
+app.use('/populate', populateRouter);
 
 module.exports = app;
