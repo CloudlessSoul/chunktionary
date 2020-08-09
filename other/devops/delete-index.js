@@ -1,4 +1,4 @@
-var client = require('../backend/services/elasticsearch.js');
+var client = require('../../services/elasticsearch.js');
 
 client.indices.delete({  
   index: 'chunks'
