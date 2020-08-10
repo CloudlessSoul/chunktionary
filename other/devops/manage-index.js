@@ -37,7 +37,7 @@ module.exports = function() {
 
         for(var i = 0; i < chunks.length; i++) {
             bulk.push({"index":{"_id":i}});
-            bulk.push(chunks[0]);
+            bulk.push(chunks[i]);
         }
 
         console.log(bulk);
