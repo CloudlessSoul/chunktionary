@@ -15,12 +15,24 @@
 
     <form action="/populate" method="post">
         <div class="form-group">
-          <label for="de">Chunk meaning in German</label>
+          <label for="de">Chunk in German</label>
           <input type="text" class="form-control" name="de" id="de" placeholder="german">
         </div>
         <div class="form-group">
-          <label for="en">Chunk meaning in English</label>
+          <label for="en">Chunk in English</label>
           <input type="text" class="form-control" name="en" id="en" placeholder="english">
+        </div>
+        <div class="form-group">
+          <label for="description">Description in English</label>
+          <input type="text" class="form-control" name="description" id="description" placeholder="description">
+        </div>
+        <div class="form-group">
+          <label for="examplesde">Example in German</label>
+          <input type="text" class="form-control" name="examples[][de]" id="examplesde" placeholder="examples de">
+        </div>
+        <div class="form-group">
+          <label for="examplesen">Example in English</label>
+          <input type="text" class="form-control" name="examples[][en]" id="examplesen" placeholder="examples en">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
