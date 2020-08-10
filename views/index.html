@@ -16,8 +16,8 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col"></div>
-        <div class="col-8">
+        <div class="col-sm"></div>
+        <div class="col-lg">
 
           <!-- Title/Logo -->
           <h1 class="text-center">Chunktionary</h1>
@@ -32,39 +32,8 @@
             </div>
           </form>
 
-          <!-- Results -->
-          <% it.results.forEach(function(result){ %>
-          <div class="container">
-            <div class="row">
-              <!-- DE -->
-              <div class="col-12 col-md-6">
-                <!-- Chunk Title -->
-                <h3><%= result._source.de %></h3>
-                <!-- Examples -->
-                <% result._source.examples.forEach(function(example){%>
-                  <div class="pl-3">
-                    <%= example.de %>
-                  </div>
-                <% }) %>
-              </div>
-              <!-- EN -->
-              <div class="col-12 col-md-6">
-                <!-- Chunk Title -->
-                <h3><%= result._source.en %></h3>
-                <!-- Examples -->
-                <% result._source.examples.forEach(function(example){%>
-                  <div class="pl-3">
-                    <%= example.en %>
-                  </div>
-                <% }) %>
-              </div>
-            </div>
-          </div>
-
-          <hr />
-          <% }) %>
         </div>
-        <div class="col"></div>
+        <div class="col-sm"></div>
       </div>
 
     </div>

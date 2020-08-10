@@ -13,7 +13,6 @@ router.post('/', function(req, res, next) {
   var chunk = req.body;
 
   console.log(chunk);
-  
   client.index({
     index: 'chunks',
     body: chunk

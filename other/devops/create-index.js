@@ -1,3 +1,5 @@
+const dotenv = require('dotenv');
+dotenv.config();
 var client = require('../../services/elasticsearch.js');
 
 client.indices.create({  
