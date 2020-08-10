@@ -1,5 +1,17 @@
 const dotenv = require('dotenv');
 dotenv.config();
+
+/* Populate elasticsearch */
+require('./other/devops/manage-index.js')();
+
+deleteIndex(function() {
+    createIndex(function() {
+        populateIndex(function() {
+            console.log("Repopulated index");
+        });
+    })
+});
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -12,6 +24,7 @@ var populateRouter = require('./routes/populate');
 
 var app = express();
 var bodyParser = require('body-parser');
+const { index } = require('./services/elasticsearch.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.engine('html', require('eta').renderFile);
