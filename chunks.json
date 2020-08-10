@@ -4,7 +4,15 @@
         "en": "just as",
         "examples": [{
             "de": "sie ist ebenso hübsch wie du",
-            "en": "she ist just as pretty as you"
+            "en": "she is just as pretty as you"
+        }]
+    },    
+    {
+        "de": "ebenso gut können",
+        "en": "might as well",
+        "examples": [{
+            "de": "Sie können ebenso gut...",
+            "en": "You might as well..."
         }]
     }
 ]
