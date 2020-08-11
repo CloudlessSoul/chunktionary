@@ -13,6 +13,7 @@ a {
   color: #d7f9ff;
 }
 
+/* Search bar styling */
 .search-bar-input-group {
   flex-wrap: nowrap;
 }
@@ -23,6 +24,7 @@ a {
   border-radius: 5rem 0 0 5rem;
   border-color: #0e1c36;
   border-right: 0;
+  text-overflow: ellipsis;
 }
 
 .search-bar-button {
