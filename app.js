@@ -37,6 +37,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/search', searchRouter);
-app.use('/populate', populateRouter);
 
 module.exports = app;

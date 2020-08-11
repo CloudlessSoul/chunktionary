@@ -1,73 +1,68 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Fontawesome -->
-    <script src="https://kit.fontawesome.com/a59b62e9e2.js" crossorigin="anonymous"></script>
-
-    <title>Chunktionary</title>
+    <%~ E.includeFile('./partials/head.html') %>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col"></div>
-        <div class="col-8">
 
-          <!-- Title/Logo -->
-          <h1 class="text-center">Chunktionary</h1>
+    <div class="container h-100">
 
-          <!-- Search bar -->
-          <form action="/search">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" name="de">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
-              </div>
-            </div>
-          </form>
-
-          <!-- Results -->
-          <% it.results.forEach(function(result){ %>
-          <div class="container">
-            <div class="row">
-              <!-- DE -->
-              <div class="col-12 col-md-6">
-                <!-- Chunk Title -->
-                <h3><%= result._source.de %></h3>
-                <!-- Examples -->
-                <% result._source.examples.forEach(function(example){%>
-                  <div class="pl-3">
-                    <%= example.de %>
-                  </div>
-                <% }) %>
-              </div>
-              <!-- EN -->
-              <div class="col-12 col-md-6">
-                <!-- Chunk Title -->
-                <h3><%= result._source.en %></h3>
-                <!-- Examples -->
-                <% result._source.examples.forEach(function(example){%>
-                  <div class="pl-3">
-                    <%= example.en %>
-                  </div>
-                <% }) %>
-              </div>
-            </div>
-          </div>
-
-          <hr />
-          <% }) %>
+      <div class="row h-25">
+        <div class="col-sm-12 my-auto">
+          <!-- Title / logo -->
+          <h1 class="text-center mb-5">Chunktionary</h1>
+          <!-- Search bar-->
+          <%~ E.includeFile('./partials/search-input.html') %>
         </div>
-        <div class="col"></div>
       </div>
 
-    </div>
+      <% if(it.results.length < 1) { %>
+        <h3 class="text-center font-weight-bold mt-3">No results found.</h1>
+        <h4 class="text-center secondary-color w-50 mx-auto">We're very sorry, no results were found for your search term. 
+          Your query has been noted and we will seek to add it in the future.</h1>
+        <% } else { %>
+      <div class="row h-25">
+        <div class="col-sm-12 my-auto">
+          <!-- Results -->
+          <% it.results.forEach(function(result){ %>
+            <div class="container mb-5">
+              <div class="row">
+                <!-- DE -->
+                <div class="col-12 col-md-6">
+                  <!-- Chunk Title -->
+                  <h3 class="chunk-title"><%= result._source.de %></h3>
+                </div>
+                <!-- EN -->
+                <div class="col-12 col-md-6">
+                  <!-- Chunk Title -->
+                  <h3 class="chunk-title"><%= result._source.en %></h3>
+                </div>
+              </div>
+
+              <% result._source.examples.forEach(function(example){%>
+              <div class="row mb-2">
+                <!-- DE -->
+                <div class="col-12 col-md-6">
+                  <!-- Examples -->
+                    <div class="chunk-example">
+                      <%= example.de %>
+                    </div>
+                </div>
+                <!-- EN -->
+                <div class="col-12 col-md-6">
+                  <!-- Examples -->
+                    <div class="chunk-example">
+                      <%= example.en %>
+                    </div>
+                  <% }) %>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          <% } %>
+        </div>
+      </div>
+   </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

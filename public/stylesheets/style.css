@@ -1,8 +1,55 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Abel', serif;
+  background-color: #FEFEFE;
+  color: #0e1c36;
+}
+
+body, html {
+  height: 100%;
 }
 
 a {
-  color: #00B7FF;
+  color: #d7f9ff;
+}
+
+.search-bar-input-group {
+  flex-wrap: nowrap;
+}
+
+.search-bar-input {
+  padding: 2rem;
+  font-size: 1.5rem;
+  border-radius: 5rem 0 0 5rem;
+  border-color: #0e1c36;
+  border-right: 0;
+}
+
+.search-bar-button {
+  border-radius: 0 5rem 5rem 0;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: white;
+  border-left: 0;
+  border-color: #0e1c36;
+}
+
+/* Styles for search page */
+.chunk-title {
+  font-weight: bold;
+}
+
+.chunk-example {
+  color: #1d2534;
+  font-size: 1.1rem;
+}
+
+/* Tokens */
+
+.primary-color {
+  color: #0e1c36;
+}
+
+.secondary-color {
+  color: #1d2534;
 }
