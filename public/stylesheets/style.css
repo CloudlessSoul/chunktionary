@@ -1,8 +1,10 @@
 body {
   padding: 50px;
-  font-family: 'Abel', serif;
-  background-color: #FEFEFE;
+  font-family: 'Roboto';
+  background-color: white;
   color: #0e1c36;
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
 }
 
 body, html {
@@ -25,6 +27,7 @@ a {
   border-color: #0e1c36;
   border-right: 0;
   text-overflow: ellipsis;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .search-bar-button {
@@ -34,16 +37,34 @@ a {
   background-color: white;
   border-left: 0;
   border-color: #0e1c36;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 /* Styles for search page */
 .chunk-title {
-  font-weight: bold;
+  font-weight: 300;
 }
 
 .chunk-example {
-  color: #1d2534;
   font-size: 1.1rem;
+}
+
+.chunk-result-card {
+  background-color: white;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.chunk-language-marker {
+  color: #6379CF;
+  vertical-align: super;
+  font-size: medium;
+  font-weight: 100;
+}
+
+.chunk-examples-label {
+  color: #888;
+  font-weight: 100;
 }
 
 /* Tokens */
@@ -53,5 +74,5 @@ a {
 }
 
 .secondary-color {
-  color: #1d2534;
+  color: #153B82;
 }

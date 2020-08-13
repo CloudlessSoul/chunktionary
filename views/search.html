@@ -7,7 +7,7 @@
 
     <div class="container h-100">
 
-      <div class="row mb-5">
+      <div class="row">
         <div class="col-sm-12 my-auto">
           <!-- Title / logo -->
           <h1 class="text-center mb-5">Chunktionary</h1>
@@ -25,43 +25,49 @@
         <div class="col-sm-12 my-auto">
           <!-- Results -->
           <% it.results.forEach(function(result){ %>
-            <div class="container mb-5">
+          <div class="card border-light chunk-result-card mt-5">
+            <div class="card-body">
+            <div class="container">
               <div class="row">
                 <!-- DE -->
                 <div class="col-12 col-md-6">
                   <!-- Chunk Title -->
-                  <h3 class="chunk-title"><%= result._source.de %></h3>
+                  <h3 class="chunk-title primary-color"><%= result._source.de %>&nbsp;<span class="chunk-language-marker">de</span></h3>
                 </div>
                 <!-- EN -->
                 <div class="col-12 col-md-6">
                   <!-- Chunk Title -->
-                  <h3 class="chunk-title"><%= result._source.en %></h3>
+                  <h3 class="chunk-title primary-color"><%= result._source.en %>&nbsp;<span class="chunk-language-marker">en</span></h3>
                 </div>
               </div>
 
+              <div class="d-none d-md-block mt-2 chunk-examples-label">Examples</div>
+              <hr class="d-none d-md-block m-1 p-0"/>
               <% result._source.examples.forEach(function(example){%>
               <div class="row mb-2">
                 <!-- DE -->
                 <div class="col-12 col-md-6">
                   <!-- Examples -->
-                    <div class="chunk-example">
+                    <div class="chunk-example secondary-color ml-md-2">
                       <%= example.de %>
                     </div>
                 </div>
                 <!-- EN -->
                 <div class="col-12 col-md-6">
                   <!-- Examples -->
-                    <div class="chunk-example">
+                    <div class="chunk-example secondary-color ml-md-2">
                       <%= example.en %>
                     </div>
                   <% }) %>
                 </div>
               </div>
             </div>
-            <% }) %>
-          <% } %>
         </div>
       </div>
+    </div>
+  </div>
+       <% }) %>
+      <% } %>
    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
