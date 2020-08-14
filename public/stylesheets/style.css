@@ -44,11 +44,12 @@ a {
 
 /* Styles for search page */
 .chunk-title {
-  font-weight: 300;
+  font-weight: lighter;
 }
 
 .chunk-example {
   font-size: 1.1rem;
+  font-weight: light;
 }
 
 .chunk-result-card {
