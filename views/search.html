@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="container results-container h-75">
+  <div class="container-fluid results-container">
 
     <% if(it.results.length < 1) { %>
     <h3 class="text-center font-weight-light mt-5">No results found.</h1>
@@ -24,55 +24,53 @@
         for your search term.
         Your query has been noted and we will seek to add it in the future.</h1>
         <% } else { %>
-            <div class="row">
-              <div class="col-sm-12 my-auto">
-                <!-- Results -->
-                <% it.results.forEach(function(result){ %>
-                <div class="container my-5">
-                  
-                  <div class="row">
-                    <!-- DE -->
-                    <div class="col-12 col-md-6">
-                      <!-- Chunk Title -->
-                      <h3 class="chunk-title primary-color"><%= result._source.de %>&nbsp;<span
-                          class="chunk-language-marker">de</span></h3>
-                    </div>
-                    <!-- EN -->
-                    <div class="col-12 col-md-6">
-                      <!-- Chunk Title -->
-                      <h3 class="chunk-title primary-color"><%= result._source.en %>&nbsp;<span
-                          class="chunk-language-marker">en</span></h3>
-                    </div>
-                  </div>
-
-                  <div class="d-none d-md-block mt-1 chunk-examples-label ml-md-3">Examples</div>
-                  <!-- <hr class="d-none d-md-block my-1 p-0 ml-3" /> -->
-
-                  <% result._source.examples.forEach(function(example){%>
-                  <div>
-                    <div class="row mb-1 ml-md-3">
-                      <!-- DE -->
-                      <div class="col-12 col-md-6">
-                        <!-- Examples -->
-                        <div class="chunk-example secondary-color">
-                          <%= example.de %>
-                        </div>
-                      </div>
-                      <!-- EN -->
-                      <div class="col-12 col-md-6">
-                        <!-- Examples -->
-                        <div class="chunk-example secondary-color">
-                          <%= example.en %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <% }) %>
+        <div class="row w-75 mx-auto">
+          <div class="col-sm-12 my-auto">
+            <!-- Results -->
+            <% it.results.forEach(function(result){ %>
+            <div class="my-5">
+              <div class="row">
+                <!-- DE -->
+                <div class="col-12 col-md-6">
+                  <!-- Chunk Title -->
+                  <h3 class="chunk-title primary-color"><%= result._source.de %>&nbsp;<span
+                      class="chunk-language-marker">de</span></h3>
                 </div>
-                <hr />
-                <% }) %>
+                <!-- EN -->
+                <div class="col-12 col-md-6">
+                  <!-- Chunk Title -->
+                  <h3 class="chunk-title primary-color"><%= result._source.en %>&nbsp;<span
+                      class="chunk-language-marker">en</span></h3>
+                </div>
               </div>
-            </div>
+
+              <div class="d-none d-md-block mt-1 chunk-examples-label ml-md-1">Examples</div>
+              <hr class="d-none d-md-block my-1 p-0 ml-md-1" />
+
+              <% result._source.examples.forEach(function(example){%>
+              <div>
+                <div class="row mb-1 pl-md-3">
+                  <!-- DE -->
+                  <div class="col-12 col-md-6">
+                    <!-- Examples -->
+                    <div class="chunk-example secondary-color">
+                      <%= example.de %>
+                    </div>
+                  </div>
+                  <!-- EN -->
+                  <div class="col-12 col-md-6">
+                    <!-- Examples -->
+                    <div class="chunk-example secondary-color">
+                      <%= example.en %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% }) %>
+            <hr class="d-md-none chunk-divider"/>
+            <% }) %>
+          </div>
+        </div>
         <% } %>
   </div>
   <!-- Optional JavaScript -->

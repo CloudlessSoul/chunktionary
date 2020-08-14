@@ -74,14 +74,12 @@ a {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-hr.chunk-divider { 
-  border-top: 1px dashed #bbbbbb;
-  display: block;
-  width: 100%;
-}
-
 .search-container {
   background-color: #CC513B;
+}
+
+.chunk-divider:last-child {
+  display: none;
 }
 
 /* Tokens */
