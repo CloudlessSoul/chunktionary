@@ -6,6 +6,7 @@ body {
 
 body, html {
   height: 100%;
+  width: 100%;
   background-image: linear-gradient(176deg, #CC513B 40%, #FFA696 calc(40% + 2px));
 }
 
