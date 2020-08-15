@@ -6,70 +6,83 @@
 </head>
 
 <body>
-
-  <div class="container-fluid search-container">
-    <div class="row">
-      <div class="col-sm-12 my-auto pb-5">
-        <!-- Title / logo -->
-        <h1 class="font-weight-lighter logo">Chunktionary</h1>
-        <!-- Search bar-->
+  <div class="container-fluid search-container h-50">
+    <div class="row h-50">
+      <div class="col-sm-12 mt-auto text-center">
+        <a href="/" class="logo logo-md d-none d-md-block">Chunktionary</a>
+        <a href="/" class="logo d-md-none">Chunktionary</a>
+      </div>
+    </div>
+    <div class="row h-50">
+      <div class="col-0 col-md-2"></div>
+      <div class="col col-md-8 my-auto">
         <%~ E.includeFile('./partials/search-input.html') %>
       </div>
+      <div class="col-0 col-md-2"></div>
     </div>
   </div>
 
   <div class="container-fluid results-container py-5">
-
-    <% if(it.results.length < 1) { %>
-
     <div class="row">
-      <h3 class="text-center font-weight-light mt-5">No results found.</h1>
-        <h4 class="text-center font-weight-lighter secondary-color w-50 mx-auto">We're very sorry, no results were found
-          for your search term.</h4>
-        <h1>Your query has been noted and we will seek to add it in the future.</h1>
-    </div>
-    <% } else { %>
-    <!-- Results -->
-    <% it.results.forEach(function(result){ %>
-    <div class="row">
-      <!-- DE -->
-      <div class="col-12 col-md-6">
-        <!-- Chunk Title -->
-        <h3 class="chunk-title primary-color"><%= result._source.de %>&nbsp;<span
-            class="chunk-language-marker">de</span></h3>
-      </div>
-      <!-- EN -->
-      <div class="col-12 col-md-6">
-        <!-- Chunk Title -->
-        <h3 class="chunk-title primary-color"><%= result._source.en %>&nbsp;<span
-            class="chunk-language-marker">en</span></h3>
-      </div>
-    </div>
 
-    <!-- <div class="d-none d-md-block mt-1 chunk-examples-label ml-md-1">Examples</div>
+      <% if(it.results.length < 1) { %>
+
+      <div class="col-0 col-md-2"></div>
+      <div class="col-12 col-md-8">
+        <h3 class="font-weight-light text-md-center">No results found.</h3>
+        <h4 class="font-weight-lighter secondary-color text-md-center">We're very sorry, no results were
+          found for your search term. Your query has been noted and we will seek to add it in the future.</h1>
+      </div>
+
+      <div class="col-0 col-md-2"></div>
+      <% } else { %>
+
+      <div class="col-0 col-md-2"></div>
+      <div class="col-12 col-md-8">
+        <!-- Results -->
+        <% it.results.forEach(function(result){ %>
+        <div class="row">
+          <!-- DE -->
+          <div class="col-12 col-md-6">
+            <!-- Chunk Title -->
+            <h3 class="chunk-title primary-color"><%= result._source.de %>&nbsp;<span
+                class="chunk-language-marker">de</span></h3>
+          </div>
+          <!-- EN -->
+          <div class="col-12 col-md-6">
+            <!-- Chunk Title -->
+            <h3 class="chunk-title primary-color"><%= result._source.en %>&nbsp;<span
+                class="chunk-language-marker">en</span></h3>
+          </div>
+        </div>
+
+        <!-- <div class="d-none d-md-block mt-1 chunk-examples-label ml-md-1">Examples</div>
           <hr class="d-none d-md-block my-1 p-0 ml-md-1" /> -->
 
-    <% result._source.examples.forEach(function(example){%>
-    <div class="row mb-1 pl-md-4">
-      <!-- DE -->
-      <div class="col-12 col-md-6">
-        <!-- Examples -->
-        <div class="chunk-example secondary-color">
-          <%= example.de %>
+        <% result._source.examples.forEach(function(example){%>
+        <div class="row mb-1 pl-md-3">
+          <!-- DE -->
+          <div class="col-12 col-md-6">
+            <!-- Examples -->
+            <div class="chunk-example secondary-color">
+              <%= example.de %>
+            </div>
+          </div>
+          <!-- EN -->
+          <div class="col-12 col-md-6">
+            <!-- Examples -->
+            <div class="chunk-example secondary-color">
+              <%= example.en %>
+            </div>
+          </div>
         </div>
+        <% }) %>
+        <hr class="chunk-divider my-5" />
+        <% }) %>
+        <% } %>
       </div>
-      <!-- EN -->
-      <div class="col-12 col-md-6">
-        <!-- Examples -->
-        <div class="chunk-example secondary-color">
-          <%= example.en %>
-        </div>
-      </div>
+      <div class="col-0 col-md-2"></div>
     </div>
-    <% }) %>
-    <hr class="chunk-divider my-5" />
-    <% }) %>
-    <% } %>
   </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -82,6 +95,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <script src="/javascripts/populate-search-input.js"></script>
 </body>
 
 </html>
