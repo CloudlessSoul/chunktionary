@@ -19,7 +19,6 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var searchRouter = require('./routes/search');
-var populateRouter = require('./routes/populate');
 
 
 var app = express();
